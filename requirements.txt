@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+langchain==0.0.350
+openai
+python-dotenv
+langchain-community
+pydantic
+requests
+transformers
+torch
+accelerate
+streamlit
