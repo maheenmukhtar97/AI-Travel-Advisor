@@ -1,0 +1,9 @@
+[theme]
+base="light"
+
+primaryColor="#6b7280"              # 👈 neutral gray (buttons, sliders)
+backgroundColor="#f3e8ff"           # 👈 pastel violet background
+secondaryBackgroundColor="#ffffff"  # 👈 white sidebar/cards
+textColor="#000000"                 # 👈 black text
+
+font="sans serif"
