@@ -200,20 +200,27 @@ if st.button("✔ Submit Preferences"):
         st.warning("Please enter your preferences first.")
 
 # --- Date Inputs ---
+from datetime import date, timedelta
+
 col1, col2 = st.columns(2)
 
 with col1:
     departure_date = st.date_input(
         "📅 Departure Date",
-        min_value=date.today()
+        min_value=date.today(),
+        value=date.today()
     )
 
 with col2:
     return_date = st.date_input(
         "🔁 Return Date",
-        min_value=departure_date if departure_date else date.today()
+        min_value=departure_date + timedelta(days=1),
+        value=departure_date + timedelta(days=2)
     )
 
+# Optional validation (recommended)
+if return_date <= departure_date:
+    st.error("Return date must be after departure date ❌")
 # --- Validation ---
 if departure_date and return_date:
     if return_date < departure_date:
