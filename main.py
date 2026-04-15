@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from serpapi import GoogleSearch
 
@@ -24,6 +25,13 @@ client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 app = FastAPI(title="AI Travel Advisor Backend")
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # production mein Streamlit URL daal sakte ho
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 # ---------------- CITY NORMALIZATION ----------------
 CITY_TO_IATA = {
     "lahore": "LHE",
